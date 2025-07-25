@@ -28,23 +28,32 @@ cd skillfare
 
 ### 2. Create a virtual environment
 
+```bash
 python -m venv .env
 .env\Scripts\activate  # On Windows
-
+```
 ### 3. Install dependencies
-pip install -r requirements.txt
 
+```bash
+pip install -r requirements.txt
+```
 ### 4. Setup wkhtmltopdf (for PDF feature)
+
+```bash
 Download from: [wkhtmltopdf](https://wkhtmltopdf.org/downloads.html)
 Set the executable path in backend/app.py or wherever pdfkit.configuration() is used****
+```
 
 ### 5. Run the app
+
+```bash
 python run.py
+```
 
 
-
-skillfare/
 ## Project Structure
+
+```bash
 ├── backend/
 │   ├── templates/
 │   ├── static/
@@ -55,7 +64,7 @@ skillfare/
 ├── run.py
 ├── requirements.txt
 └── README.md
-
+```
 ## Upcoming Features
 - User login & persistent analysis history
 - More domains and roadmap APIs
