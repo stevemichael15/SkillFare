@@ -23,7 +23,7 @@
 
 ```bash
 git clone https://github.com/your-username/skillfare.git
-cd skillfare
+cd skillfare```
 
 ### 2. Create a virtual environment
 
