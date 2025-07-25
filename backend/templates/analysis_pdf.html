@@ -1,0 +1,42 @@
+
+{% block content %}
+
+<div class="max-w-4xl mx-auto py-12 px-6 text-gray-900 bg-white">
+  <h2 class="text-3xl font-bold text-center mb-10">
+    Personalized Path for a {{ skill_level }} Learner
+  </h2>
+
+  {% if predicted %}
+  <p class="text-center text-blue-700 font-medium mb-6">
+    Predicted Domain: <strong>{{ predicted }}</strong>
+  </p>
+  {% endif %}
+
+  {% for domain, details in analysis.items() %}
+  <div class="border border-gray-300 rounded-xl p-6 mb-8 bg-gray-50">
+    <h3 class="text-2xl font-semibold mb-4 {% if domain == predicted %}text-blue-600{% else %}text-gray-800{% endif %}">
+      {{ domain }}{% if domain == predicted %} (Predicted){% endif %}
+    </h3>
+
+    <p><strong>Career Insight:</strong> {{ details.career }}</p>
+    <p class="mt-2"><strong>Roadmap:</strong> {{ details.roadmap }}</p>
+
+    <div class="mt-4">
+      <strong>Projects:</strong>
+      <ul class="list-disc list-inside text-gray-700 mt-1">
+        {% for project in details.projects %}
+        <li>{{ project }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <p class="mt-4"><strong>Resume Tip:</strong> {{ details.resume_tip }}</p>
+  </div>
+  {% endfor %}
+
+  <div class="mt-10 text-sm text-center text-gray-500">
+    Exported from SkillFare | www.skillfare.tech
+  </div>
+</div>
+
+{% endblock %}

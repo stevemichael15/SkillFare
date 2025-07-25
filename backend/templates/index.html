@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{% block title %}SkillFare{% endblock %}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #0F172A;
+      font-family: 'Segoe UI', sans-serif;
+    }
+  </style>
+</head>
+{% block content %}
+
+<div class="min-h-screen bg-[#0F172A] flex flex-col justify-center items-center text-white px-6 py-16">
+  <h1 class="text-4xl md:text-5xl font-bold text-cyan-400 mb-4 text-center">
+    Launch Your Learning Journey with SkillFare
+  </h1>
+  <p class="text-lg md:text-xl text-gray-300 max-w-2xl text-center mb-8">
+    Personalized roadmaps, real-world projects, and resume-ready skills — all crafted for your level and interest.
+  </p>
+
+  <div class="flex flex-col md:flex-row gap-4">
+    <a href="/signup" class="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-xl text-lg transition duration-300 text-center">   
+      Get Started
+    </a>
+    <a href="/login" class="border border-cyan-400 text-cyan-400 px-6 py-3 rounded-xl text-lg hover:bg-cyan-800 transition duration-300 text-center">
+      Already a User? Login
+    </a>
+  </div>
+</div>
+
+{% endblock %}
+  <!-- 🧩 Footer -->
+  <footer class="bg-[#1E293B] text-gray-400">
+    <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- About -->
+      <div>
+        <h3 class="text-white text-lg font-semibold mb-2">About SkillFare</h3>
+        <p class="text-sm">SkillFare helps learners discover, build, and showcase personalized tech portfolios powered by intelligent suggestions.</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-white text-lg font-semibold mb-2">Quick Links</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/" class="hover:text-cyan-400 transition">Home</a></li>
+          <li><a href="#features" class="hover:text-cyan-400 transition">Features</a></li>
+          <li><a href="#pricing" class="hover:text-cyan-400 transition">Pricing</a></li>
+          <li><a href="/signup" class="hover:text-cyan-400 transition">Join Now</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h3 class="text-white text-lg font-semibold mb-2">Contact</h3>
+        <p class="text-sm">📧 stevemichael681@gmail.com</p>
+        <p class="text-sm mt-2">🔗 <a href="https://github.com/stevemichael15" class="hover:text-cyan-400">GitHub</a></p>
+        <p class="text-sm">🔗 <a href="https://www.linkedin.com/in/steve-michael-512666222" class="hover:text-cyan-400">LinkedIn</a></p>
+      </div>
+    </div>
+    <div class="text-center text-xs py-4 border-t border-gray-700">
+      © 2025 SkillFare. All rights reserved.
+    </div>
+  </footer>

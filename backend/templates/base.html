@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{% block title %}SkillFare{% endblock %}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #0F172A;
+      font-family: 'Segoe UI', sans-serif;
+    }
+  </style>
+</head>
+<body class="text-white min-h-screen flex flex-col justify-between">
+  
+  <!-- 🌐 Navbar -->
+  <nav class="bg-[#1E293B] shadow-md">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      
+      <!-- Logo -->
+      <a href="/" class="text-2xl font-bold text-cyan-400">SkillFare</a>
+
+      <!-- Dynamic navbar content -->
+      {% if request.path == "/signup" or request.path == "/login" %}
+        <!-- Minimal Navbar for Auth Pages -->
+        <div class="space-x-4">
+          {% if request.path != "/login" %}
+            <a href="/login" class="text-white hover:text-cyan-400 transition">Login</a>
+          {% endif %}
+          {% if request.path != "/signup" %}
+            <a href="/signup" class="text-white hover:text-cyan-400 transition">Sign Up</a>
+          {% endif %}
+        </div>
+      {% else %}
+        <!-- Full Navbar for Rest -->
+        <div class="flex items-center space-x-6">
+          <a href="/" class="hover:text-cyan-400 transition">Home</a>
+          <a href="#features" class="hover:text-cyan-400 transition">Features</a>
+          <a href="#pricing" class="hover:text-cyan-400 transition">Pricing</a>
+          <a href="#contact" class="hover:text-cyan-400 transition">Contact</a>
+          <a href="/login" class="bg-transparent border border-cyan-400 px-4 py-2 rounded-lg hover:bg-cyan-600 transition">Login</a>
+          <a href="/signup" class="bg-cyan-500 text-white px-4 py-2 rounded-lg hover:bg-cyan-600 transition">Sign Up</a>
+        </div>
+      {% endif %}
+
+    </div>
+  </nav>
+
+  <!-- ✨ Main Content -->
+  <main class="flex-grow">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- 🧩 Footer -->
+  <footer class="bg-[#1E293B] text-gray-400">
+    <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- About -->
+      <div>
+        <h3 class="text-white text-lg font-semibold mb-2">About SkillFare</h3>
+        <p class="text-sm">SkillFare helps learners discover, build, and showcase personalized tech portfolios powered by intelligent suggestions.</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-white text-lg font-semibold mb-2">Quick Links</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/" class="hover:text-cyan-400 transition">Home</a></li>
+          <li><a href="#features" class="hover:text-cyan-400 transition">Features</a></li>
+          <li><a href="#pricing" class="hover:text-cyan-400 transition">Pricing</a></li>
+          <li><a href="/signup" class="hover:text-cyan-400 transition">Join Now</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h3 class="text-white text-lg font-semibold mb-2">Contact</h3>
+        <p class="text-sm">📧 stevemichael681@gmail.com</p>
+        <p class="text-sm mt-2">🔗 <a href="https://github.com/stevemichael15" class="hover:text-cyan-400">GitHub</a></p>
+        <p class="text-sm">🔗 <a href="https://www.linkedin.com/in/steve-michael-512666222" class="hover:text-cyan-400">LinkedIn</a></p>
+      </div>
+    </div>
+    <div class="text-center text-xs py-4 border-t border-gray-700">
+      © 2025 SkillFare. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>

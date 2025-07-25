@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}SkillFare | Choose Your Domains{% endblock %}
+{% block content %}
+
+<div class="max-w-4xl mx-auto py-16 px-6">
+  <h2 class="text-3xl font-bold text-cyan-400 mb-8 text-center">Choose Your Interests</h2>
+<div id="selected-tags" class="flex flex-wrap gap-2 mb-6 justify-center text-white text-sm"></div>
+
+<form action="{{ url_for('analysis') }}" method="POST">
+  <h2>Select Domains:</h2>
+  <div>
+    {% for domain in [
+      "Web Development", "Machine Learning", "Data Science",
+      "Mobile Apps", "Cybersecurity", "Blockchain", "DevOps",
+      "Game Dev", "AR/VR", "Open Source", "Cloud", "UI/UX Design"
+    ] %}
+      <label>
+        <input type="checkbox" name="domains" value="{{ domain }}"> {{ domain }}
+      </label><br>
+    {% endfor %}
+  </div>
+
+  <h2>Select Skill Level:</h2>
+  <select name="skillLevel">
+    <option value="Beginner">Beginner</option>
+    <option value="Intermediate">Intermediate</option>
+    <option value="Expert">Expert</option>
+  </select>
+
+  <button type="submit">Generate Path</button>
+</form>
+
+</div>
+
+{% endblock %}

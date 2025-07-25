@@ -1,0 +1,19 @@
+# Python & Flask
+.env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+instance/
+*.db
+*.sqlite3
+*.log
+
+# VSCode & PyCharm
+.vscode/
+.idea/
+*.egg-info/
+
+# OS files
+.DS_Store
+Thumbs.db

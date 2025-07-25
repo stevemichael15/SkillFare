@@ -1,0 +1,72 @@
+<head>
+  <style>
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  .bg-[#1E293B] {
+    background: white !important;
+  }
+
+  .text-white, .text-cyan-200, .text-cyan-300, .text-cyan-400, .text-yellow-400 {
+    color: black !important;
+  }
+
+  a {
+    color: blue !important;
+  }
+}
+</style>
+
+</head>
+{% extends 'base.html' %}
+{% block title %}SkillFare | Personalized Roadmap{% endblock %}
+{% block content %}
+
+<div class="max-w-5xl mx-auto py-16 px-6">
+  <h2 class="text-3xl font-bold text-cyan-400 text-center mb-10">
+    Personalized Path for a {{ skill_level }} Learner
+  </h2>
+
+  {% if predicted %}
+  <p class="text-center text-yellow-400 font-medium mb-6">Predicted domain: <strong>{{ predicted }}</strong></p>
+  {% endif %}
+
+  {% for domain, details in analysis.items() %}
+  <div class="bg-[#1E293B] p-6 mb-8 rounded-xl shadow-md hover:shadow-cyan-400/20 transition duration-300">
+    {% if domain == predicted %}
+    <h3 class="text-2xl font-semibold text-yellow-400 mb-4">{{ domain }} (Predicted)</h3>
+    {% else %}
+    <h3 class="text-2xl font-semibold text-cyan-300 mb-4">{{ domain }}</h3>
+    {% endif %}
+
+    <p><strong class="text-white">Career Insight:</strong> {{ details.career }}</p>
+    <p class="mt-2"><strong class="text-white">Roadmap:</strong> {{ details.roadmap }}</p>
+
+    <div class="mt-4">
+      <strong class="text-white">Projects:</strong>
+      <ul class="list-disc list-inside text-cyan-200 mt-1">
+        {% for project in details.projects %}
+        <li>{{ project }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <p class="mt-4"><strong class="text-white">Resume Tip:</strong> {{ details.resume_tip }}</p>
+  </div>
+  {% endfor %}
+
+  {% if not request.args.get('from_pdf') %}
+  <div class="flex justify-between items-center mt-10">
+    <a href="/dashboard" class="bg-cyan-500 text-white py-2 px-4 rounded-xl hover:bg-cyan-600">← Back to Dashboard</a>
+    <a href="/download-pdf" class="bg-cyan-500 text-white py-2 px-4 rounded-xl hover:bg-cyan-600">Download as PDF</a>
+  </div>
+  {% endif %}
+</div>
+
+{% endblock %}
+{% if request.args.get('from_pdf') %}
+  <style> ... light theme overrides ... </style>
+{% endif %}
